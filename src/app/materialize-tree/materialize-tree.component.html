@@ -1,0 +1,64 @@
+<ul
+    [ngClass]="{ 'materialize-tree': isRoot }"
+    [attr.data-collapsible]="collapsibleType">
+  <ng-container *ngFor="let node of nodes">
+    <li>
+      <a
+        tree-node
+        class="waves-effect"
+        [attr.level]="level"
+        [style.padding-left]="getPaddingLeft()"
+        [style.padding-right]="getPaddingRight()"
+        [ngClass]="{ 'root-tree-node': isRoot }"
+        (click)="node.isExpanded = !node.isExpanded">
+        <ng-container [ngSwitch]="node.children?.length > 0">
+          <!-- node has children -->
+          <ng-container *ngSwitchCase="true">
+            <i
+              *ngIf="fontAwesomeIcon"
+              class="fa fa-{{ node.isExpanded ? expandedIcon : collapsedIcon }}"
+              aria-hidden="true"></i>
+            <i
+              *ngIf="materialIcon"
+              class="material-icons">{{ node.isExpanded ? expandedIcon : collapsedIcon }}</i>
+          </ng-container>
+          <ng-container
+            *ngSwitchCase="false">
+            <i
+              *ngIf="fontAwesomeIcon"
+              class="fa fa-{{ icon }}"
+              aria-hidden="true"></i>
+            <i
+              *ngIf="materialIcon"
+              class="material-icons">{{ icon }}</i>
+          </ng-container>
+        </ng-container>
+        {{ node.title }}
+      </a>
+      <ng-container
+        [ngSwitch]="node.children?.length > 0">
+        <!-- node has children -->
+        <ng-container
+          *ngSwitchCase="true">
+          <div
+            tree-node-children
+            [@treeNodeChildrenState]="node.isExpanded.toString()">
+            <app-materialize-tree
+                [isRoot]="false"
+                [level]="level + 1"
+                [nodes]="node.children"
+                [displayField]="displayField"
+                [childrenField]="childrenField"
+                [isExpandedField]="isExpandedField"
+                [fontAwesomeIcon]="fontAwesomeIcon"
+                [materialIcon]="materialIcon"
+                [expandedIcon]="expandedIcon"
+                [collapsedIcon]="collapsedIcon"
+                [icon]="icon">
+            </app-materialize-tree>
+          </div>
+        </ng-container>
+      </ng-container>
+    </li>
+  </ng-container>
+</ul>

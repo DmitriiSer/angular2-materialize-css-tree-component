@@ -1,0 +1,62 @@
+[
+    {
+        "description": "Top Menu",
+        "isOpen": true,
+        "elements": [
+            {
+                "description": "Child #1",
+                "isOpen": false,
+                "elements": [
+                    {
+                        "description": "SubChild #1.1"
+                    },
+                    {
+                        "description": "SubChild #1.2"
+                    }
+                ]
+            },
+            {
+                "description": "Child #2",
+                "isOpen": true,
+                "elements": [
+                    {
+                        "description": "SubChild #2.1"
+                    },
+                    {
+                        "description": "SubChild #2.2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description": "Bottom Menu",
+        "isOpen": true,
+        "elements": [
+            {
+                "description": "Child #1",
+                "isOpen": true,
+                "elements": [
+                    {
+                        "description": "SubChild #1.1"
+                    },
+                    {
+                        "description": "SubChild #1.2"
+                    }
+                ]
+            },
+            {
+                "description": "Child #2",
+                "isOpen": true,
+                "elements": [
+                    {
+                        "description": "SubChild #2.1"
+                    },
+                    {
+                        "description": "SubChild #2.2"
+                    }
+                ]
+            }
+        ]
+    }
+]

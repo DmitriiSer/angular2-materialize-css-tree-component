@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row valign-wrapper">
+        <div class="col s5 valign">
+            <app-materialize-tree [dataFile]="'./assets/data.json'" [displayField]="'description'" [childrenField]="'elements'" [isExpandedField]="'isOpen'">
+            </app-materialize-tree>
+        </div>
+        <div class="col offset-s2 s5 valign">
+            <app-materialize-tree [nodes]="
+            [{ 
+                'title' : 'Right Menu',
+                'isExpanded': true,
+                'children': [
+                    {
+                        'title': 'Child #1',
+                        'isExpanded': true,
+                        'children': [
+                            {
+                                'title': 'SubChild #1.1'
+                            }, {
+                                'title': 'SubChild #1.2'
+                            }
+                        ]
+                    }, {
+                        'title': 'Child #2',
+                        'isExpanded': false,
+                        'children': [
+                            {
+                                'title': 'SubChild #2.1'
+                            }, {
+                                'title': 'SubChild #2.2'
+                            }
+                        ]
+                    }
+                ] 
+            }]"></app-materialize-tree>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+    /** TODO: check if '.side-nav' and '.side-nav.fixed' prefixes are required */
+
+    /**************************** TREE MENU ****************************/
+    
+    .materialize-tree {
+        margin: 0;
+        overflow: auto;
+    }
+
+    /************************** TREE MENU NODE *************************/
+    
+    .materialize-tree [tree-node] {
+        display: block;
+        height: 3rem;
+        line-height: 3rem;
+        background-color: transparent;
+        border: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    /************************ TREE MENU NODE ICON **********************/
+    
+    .materialize-tree li > [tree-node] > i,
+    .materialize-tree li > [tree-node] > i.material-icons {
+        display: block;
+        width: 24px;
+        margin: 0 0.5rem 0 0;
+        line-height: inherit;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 1.6rem;        
+        text-align: center;
+        text-shadow: none;
+        float: left;
+    }
+
+    /********************** TREE MENU NODE CHILDREN ********************/
+
+    .materialize-tree [tree-node-children] {
+        padding: 0;
+        border: 0;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 4px -3px inset,
+            rgba(0, 0, 0, 0.075) 0px -16px 16px -8px inset,
+            rgba(0, 0, 0, 0.3) 0px -4px 4px -4px inset;
+        transition: all 0.4s ease;
+        overflow: hidden;
+    }
+
+    .materialize-tree li.active,
+    .materialize-tree li.selected {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    /************************* TREE MENU ANCHOR ************************/
+    
+    .materialize-tree li a:not([tree-node]) {
+        height: 2rem;
+        line-height: 2rem;
+    }
+    
+    .materialize-tree li.bold > a {
+        font-weight: 600;
+    }
+
+    .materialize-tree a:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    /************** TREE MENU WHITE HEADER, BODY AND ANCHOR ************/
+    
+    .materialize-tree [tree-node].white-text,
+    .materialize-tree li a.white-text {
+        text-shadow: 0px 0px 3px black, 0px 0px 3px black, 0px 0px 3px black;
+    }
+    
+    /************************ TREE MENU SWITCH *************************/
+    
+    .materialize-tree li a > .switch {
+        display: inline-block;
+    }
+    
+    .switch label input[type=checkbox]:checked+.lever.custom:after {
+        background-color: inherit;
+    }
+
+    /**************** TREE MENU INPUT FIELD WITH LABEL *****************/
+    
+    .side-nav li .input-field label {
+        line-height: 1.5;
+    }
