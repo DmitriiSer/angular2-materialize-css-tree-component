@@ -1,5 +1,5 @@
 # angular2-materialize-css-tree-component
-An Angular 2 Materialize CSS like tree component.
+An Angular 2 / 4 Materialize CSS like tree component.
 
 ## [Demo](https://dmitriiser.github.io/angular2-materialize-css-tree-component/)
 
