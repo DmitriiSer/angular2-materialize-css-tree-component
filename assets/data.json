@@ -2,6 +2,7 @@
     {
         "description": "Top Menu",
         "isOpen": true,
+        "switchChecked": true,
         "elements": [
             {
                 "description": "Child #1",
