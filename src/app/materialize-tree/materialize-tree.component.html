@@ -5,7 +5,7 @@
     <li>
       <a
         tree-node
-        class="waves-effect"
+        class="waves-effect {{ color }}"
         [attr.level]="level"
         [style.padding-left]="getPaddingLeft()"
         [style.padding-right]="getPaddingRight()"
@@ -34,30 +34,49 @@
           </ng-container>
         </ng-container>
         {{ node.title }}
-      </a>
-      <ng-container
-        [ngSwitch]="node.children?.length > 0">
-        <!-- node has children -->
-        <ng-container
-          *ngSwitchCase="true">
-          <div
-            tree-node-children
-            [@treeNodeChildrenState]="node.isExpanded.toString()">
-            <app-materialize-tree
-                [isRoot]="false"
-                [level]="level + 1"
-                [nodes]="node.children"
-                [displayField]="displayField"
-                [childrenField]="childrenField"
-                [isExpandedField]="isExpandedField"
-                [fontAwesomeIcon]="fontAwesomeIcon"
-                [materialIcon]="materialIcon"
-                [expandedIcon]="expandedIcon"
-                [collapsedIcon]="collapsedIcon"
-                [icon]="icon">
-            </app-materialize-tree>
+        <ng-container *ngIf="showSwitches">
+          <!-- Switch -->
+          <div class="switch right"
+            (click)="switchClick($event, node)">
+            <label>
+              {{ switchOffTitle }}
+              <input type="checkbox"
+                [checked]="node.switchChecked"
+                [disabled]="disableSwitches"/>
+              <span class="lever"></span>
+              {{ switchOnTitle }}
+            </label>
           </div>
         </ng-container>
+      </a>
+      <ng-container
+        *ngIf="(node.children?.length > 0 && !hideChildren) || (hideChildren && node.switchChecked)">
+        <!-- node has children -->
+        <div
+          tree-node-children
+          [@treeNodeChildrenState]="node.isExpanded.toString()">
+          <app-materialize-tree
+            [isRoot]="false"
+            [level]="level + 1"
+            [nodes]="node.children"
+            [displayField]="displayField"
+            [childrenField]="childrenField"
+            [isExpandedField]="isExpandedField"
+            [fontAwesomeIcon]="fontAwesomeIcon"
+            [materialIcon]="materialIcon"
+            [expandedIcon]="expandedIcon"
+            [collapsedIcon]="collapsedIcon"
+            [icon]="icon"
+            [showSwitches]="showSwitches"
+            [disableSwitches]="disableChildren && !node.switchChecked"
+            [switchOffTitle]="switchOffTitle"
+            [switchOnTitle]="switchOnTitle"
+            [switchOffChildren]="switchOffChildren"
+            [switchOnChildren]="switchOnChildren"
+            [hideChildren]="hideChildren"
+            [disableChildren]="disableChildren">
+          </app-materialize-tree>
+        </div>
       </ng-container>
     </li>
   </ng-container>

@@ -1,7 +1,19 @@
 <div class="container">
     <div class="row valign-wrapper">
         <div class="col s5 valign">
-            <app-materialize-tree [dataFile]="'./assets/data.json'" [displayField]="'description'" [childrenField]="'elements'" [isExpandedField]="'isOpen'">
+            <app-materialize-tree
+                [dataFile]="'./assets/data.json'"
+                [displayField]="'description'"
+                [childrenField]="'elements'"
+                [isExpandedField]="'isOpen'"
+                [icon]="'rocket'"
+                [showSwitches]="true"
+                [switchOffTitle]="'O'"
+                [switchOnTitle]="'I'"
+                [switchOffChildren]="false"
+                [switchOnChildren]="false"
+                [hideChildren]="false"
+                [disableChildren]="true">
             </app-materialize-tree>
         </div>
         <div class="col offset-s2 s5 valign">

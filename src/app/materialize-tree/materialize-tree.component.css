@@ -10,7 +10,7 @@
     /************************** TREE MENU NODE *************************/
     
     .materialize-tree [tree-node] {
-        display: block;
+        display: flex;
         height: 3rem;
         line-height: 3rem;
         background-color: transparent;
@@ -78,8 +78,8 @@
     
     /************************ TREE MENU SWITCH *************************/
     
-    .materialize-tree li a > .switch {
-        display: inline-block;
+    .materialize-tree [tree-node] > .switch {
+        margin-left: auto;
     }
     
     .switch label input[type=checkbox]:checked+.lever.custom:after {
